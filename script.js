@@ -1,10 +1,10 @@
 // ===== HERO SLIDESHOW =====
 let currentSlide = 0;
-const slides = document.querySelectorAll('.hero .slide');
+const slides = document.querySelectorAll(".hero .slide");
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+    slide.classList.toggle("active", i === index);
   });
 }
 function nextSlide() {
@@ -14,39 +14,39 @@ function nextSlide() {
 setInterval(nextSlide, 5000); // Ganti tiap 5 detik
 
 // ===== SLIDER KATALOG =====
-const katalogContainer = document.querySelector('.katalog-container');
-const katalogPrev = document.querySelector('.slider-btn.prev');
-const katalogNext = document.querySelector('.slider-btn.next');
+const katalogContainer = document.querySelector(".katalog-container");
+const katalogPrev = document.querySelector(".slider-btn.prev");
+const katalogNext = document.querySelector(".slider-btn.next");
 
 if (katalogPrev && katalogNext && katalogContainer) {
-  katalogPrev.addEventListener('click', () => {
-    katalogContainer.scrollBy({ left: -300, behavior: 'smooth' });
+  katalogPrev.addEventListener("click", () => {
+    katalogContainer.scrollBy({ left: -300, behavior: "smooth" });
   });
-  katalogNext.addEventListener('click', () => {
-    katalogContainer.scrollBy({ left: 300, behavior: 'smooth' });
+  katalogNext.addEventListener("click", () => {
+    katalogContainer.scrollBy({ left: 300, behavior: "smooth" });
   });
 }
 
 // ===== TESTIMONI SLIDER =====
-const testiContainer = document.querySelector('.testimoni-container');
-const testiPrev = document.querySelector('.testi-btn.prev');
-const testiNext = document.querySelector('.testi-btn.next');
+const testiContainer = document.querySelector(".testimoni-container");
+const testiPrev = document.querySelector(".testi-btn.prev");
+const testiNext = document.querySelector(".testi-btn.next");
 
 if (testiPrev && testiNext && testiContainer) {
-  testiPrev.addEventListener('click', () => {
-    testiContainer.scrollBy({ left: -300, behavior: 'smooth' });
+  testiPrev.addEventListener("click", () => {
+    testiContainer.scrollBy({ left: -300, behavior: "smooth" });
   });
-  testiNext.addEventListener('click', () => {
-    testiContainer.scrollBy({ left: 300, behavior: 'smooth' });
+  testiNext.addEventListener("click", () => {
+    testiContainer.scrollBy({ left: 300, behavior: "smooth" });
   });
 }
 
 // ===== AUTO SLIDER TESTIMONI =====
 let testiIndex = 0;
-const testiCards = document.querySelectorAll('.testimoni-card');
+const testiCards = document.querySelectorAll(".testimoni-card");
 function showTesti(index) {
   testiCards.forEach((card, i) => {
-    card.classList.toggle('active', i === index);
+    card.classList.toggle("active", i === index);
   });
 }
 function nextTesti() {
@@ -56,14 +56,22 @@ function nextTesti() {
 setInterval(nextTesti, 4000); // Auto slide setiap 4 detik
 
 // ===== ANIMASI SCROLL (FADE UP) =====
-const fadeEls = document.querySelectorAll('.fade-up');
+const fadeEls = document.querySelectorAll(".fade-up");
 function checkFade() {
-  fadeEls.forEach(el => {
+  fadeEls.forEach((el) => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
+      el.classList.add("visible");
     }
   });
 }
-window.addEventListener('scroll', checkFade);
-window.addEventListener('load', checkFade);
+window.addEventListener("scroll", checkFade);
+window.addEventListener("load", checkFade);
+
+// ===== TOGGLE MENU RESPONSIF =====
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
